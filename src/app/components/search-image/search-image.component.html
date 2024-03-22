@@ -1,1 +1,21 @@
-<p>search-image works!</p>
+<div class="jumbotron">
+    <form (ngSubmit)="searchImg()">
+        <div class="row">
+            <div class="col-lg-8">
+                <input 
+                    [(ngModel)]="nameImg"
+                    name="nameImg"
+                    type="text" 
+                    class="form-control-lg w-100" 
+                    placeholder="Busca una imagen">
+            </div>
+            <div class="col-lg-4">
+                <button 
+                    type="submit" 
+                    class="btn btn-primary btn-lg btn-block w-100">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

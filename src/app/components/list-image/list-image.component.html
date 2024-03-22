@@ -1,1 +1,21 @@
-<p>list-image works!</p>
+<div class="card-deck mt-2">
+    <div class="row">
+        <div *ngFor="let img of listImgs" class="col-3 mt-3">
+            <div class="card">
+                <img 
+                    [src]="img.previewURL"
+                    [alt]="img.user"
+                    [title]="img.user"
+                    class="card-img-top">
+                <div class="card-body">
+                    <a 
+                        [href]="img.largeImageURL" 
+                        target="_blank" 
+                        class="btn btn-primary">
+                        Ver Imagen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
