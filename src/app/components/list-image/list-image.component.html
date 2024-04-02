@@ -1,11 +1,13 @@
+<app-spinner *ngIf="showSpinner"></app-spinner>
+
 <div class="card-deck mt-2">
     <div class="row">
         <div *ngFor="let img of listImgs" class="col-3 mt-3">
             <div class="card">
                 <img 
-                    [src]="img.previewURL"
-                    [alt]="img.user"
-                    [title]="img.user"
+                    [src]="img.previewURL" 
+                    [alt]="img.user" 
+                    [title]="img.user" 
                     class="card-img-top">
                 <div class="card-body">
                     <a 
@@ -15,7 +17,33 @@
                         Ver Imagen
                     </a>
                 </div>
+                <div class="card-footer text-muted">
+                    <div class="row">
+                        <div class="col">
+                            <p class="m-0">Likes: <span class="badge text-black">{{ img.likes | number }}</span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="m-0">Views: <span class="badge text-black">{{ img.views | number }}</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="listImgs.length > 0" class="d-flex justify-content-center mt-3">
+    <ul class="pagination">
+        <li *ngIf="showPreviousPage()" class="page-item">
+            <button class="page-link" (click)="movePage(-1)">&laquo;</button>
+        </li>
+        <li class="page-item active">
+            <span class="page-link">{{ currentPage }}</span>
+        </li>
+        <li *ngIf="showNextPage()" class="page-item">
+            <button class="page-link" (click)="movePage(1)">&raquo;</button>
+        </li>
+    </ul>
 </div>

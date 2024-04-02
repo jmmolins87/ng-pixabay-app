@@ -32,7 +32,7 @@ export class ImgService {
     return this.term.asObservable();
   }
 
-  getImages( term: string ): Observable<any> {
-    return this._http.get(`${ this.url }key=${ this.token }&q=${ term }`);
+  getImages( term: string, imgPage: number, currentPage: number ): Observable<any> {
+    return this._http.get(`${ this.url }key=${ this.token }&q=${ term } &per_page=${ imgPage } &page=${ currentPage }`);
   }
 }
